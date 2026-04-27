@@ -115,7 +115,7 @@ The APIs have been tested using Postman.
 You can import the Postman collection from the link below:
 
 ```
-(https://github.com/Gauriigupta/ContentBroadcastingSystem-Backend-/blob/main/collection.json)
+[(https://github.com/Gauriigupta/ContentBroadcastingSystem-Backend-/blob/main/collection.json)](https://github.com/Gauriigupta/ContentBroadcastingSystem-Backend-/blob/main/collection.json)
 ```
 
 ### 📥 How to Use
