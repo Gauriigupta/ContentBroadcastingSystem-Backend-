@@ -1,0 +1,81 @@
+{
+  "info": {
+    "name": "Content Broadcasting System API (Advanced)",
+    "_postman_id": "a9f1b2c3-5678-4abc-9def-112233445566",
+    "description": "Advanced collection with auto-token handling",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:5000" },
+    { "key": "token", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Auth - Login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let res = pm.response.json();",
+              "if(res.token){",
+              "  pm.collectionVariables.set('token', res.token);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": "{{base_url}}/api/auth/login"
+      }
+    },
+    {
+      "name": "Content - Upload",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            { "key": "title", "value": "Sample Title", "type": "text" },
+            { "key": "subject", "value": "Maths", "type": "text" },
+            { "key": "file", "type": "file", "src": "" }
+          ]
+        },
+        "url": "{{base_url}}/api/content/upload"
+      }
+    },
+    {
+      "name": "Content - Approve",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"approved\"\n}"
+        },
+        "url": "{{base_url}}/api/content/approve/1"
+      }
+    },
+    {
+      "name": "Public - Live Content",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/api/public/live/1"
+      }
+    }
+  ]
+}
