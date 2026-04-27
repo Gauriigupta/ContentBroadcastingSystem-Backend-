@@ -105,3 +105,30 @@ uploaded → pending → approved / rejected
 * Can be extended with cron jobs for better scheduling
 * Cloud storage (AWS S3) can be integrated
 * Redis can be added for caching
+
+  ## 📬 API Testing (Postman)
+
+The APIs have been tested using Postman.
+
+### 🔗 Postman Collection
+
+You can import the Postman collection from the link below:
+
+```
+https://github.com/your-username/your-repo/blob/main/postman_collection.json
+```
+
+### 📥 How to Use
+
+1. Open Postman
+2. Click on **Import**
+3. Upload the `postman_collection.json` file
+4. Run the **Login API** first to generate the token
+5. Use other APIs directly (token is auto-handled)
+
+### ⚠️ Notes
+
+* Update `base_url` if running on a different port/server
+* Use valid credentials for login
+* Token is automatically stored after login
+
