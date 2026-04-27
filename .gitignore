@@ -1,0 +1,27 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.test
+.env.local
+
+# Local uploads directory (IMPORTANT: Do not push student content to GitHub)
+src/uploads/*
+!src/uploads/.gitkeep
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Build and IDE files
+dist/
+build/
+.vscode/
+.idea/
